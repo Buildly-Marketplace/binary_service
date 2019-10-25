@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.urls import path, include, re_path
 from rest_framework import permissions
+from binary.views import document_download_view, document_thumbnail_view
 
 
 # openapi implementation
@@ -42,6 +43,8 @@ urlpatterns = [
             schema_view.without_ui(cache_timeout=0), name='schema-json'),
     path('docs/', schema_view.with_ui('swagger', cache_timeout=0),
          name='schema-swagger-ui'),
+    re_path(r'^file/(?P<file_id>\w+)', document_download_view),
+    re_path(r'^thumbnail/(?P<file_id>\w+)', document_thumbnail_view),
     path('health_check/', include('health_check.urls')),
 
 ]
