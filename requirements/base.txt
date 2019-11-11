@@ -5,3 +5,7 @@ git+https://github.com/Humanitec/django-oauth-toolkit-jwt@v0.5.2#egg=django-oaut
 djangorestframework==3.9.1
 psycopg2-binary==2.7.7
 drf-yasg==1.10.2
+boto3==1.9.38
+django-storages
+pillow
+zlib
